@@ -1,4 +1,4 @@
-package main
+package go_utils
 
 type TreeConfig struct {
 	id string
