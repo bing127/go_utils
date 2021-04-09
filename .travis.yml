@@ -1,0 +1,9 @@
+language: go
+go:
+  - 0.0.1
+  - tip
+install:
+  - go get github.com/bing127/go_utils
+script:
+  - export PATH="$PATH:$HOME/gopath/bin"
+  - make test
