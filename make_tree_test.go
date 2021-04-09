@@ -25,7 +25,7 @@ func TestMakeTree(t *testing.T) {
 		Children: "kids",
 	}
 
-	i := config.construct(r)
+	i := config.Construct(r)
 	b, _ := json.Marshal(i)
 	fmt.Println(string(b))
 }

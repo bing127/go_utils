@@ -10,7 +10,7 @@ type MakeTree interface {
 	construct([]map[string]interface{}) []map[string]interface{}
 }
 
-func (c *TreeConfig) construct(nodes []map[string]interface{}) []map[string]interface{} {
+func (c *TreeConfig) Construct(nodes []map[string]interface{}) []map[string]interface{} {
 	idMap := make(map[string]interface{})
 	jsonTree := make([]map[string]interface{},0)
 
