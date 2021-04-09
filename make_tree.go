@@ -10,35 +10,33 @@ type MakeTree interface {
 	construct([]map[string]interface{}) []map[string]interface{}
 }
 
-func (c *TreeConfig) Construct(nodes []map[string]interface{}) []map[string]interface{} {
-	idMap := make(map[string]interface{})
-	jsonTree := make([]map[string]interface{},0)
+func (c *TreeConfig) GenerateTree(nodes []map[string]interface{}) []map[string]interface{} {
+	idMap := make(map[interface{}]interface{})
+	jsonTree := make([]map[string]interface{}, 0)
 
-	var id,pid,children string
-	if c.ID != ""{
+	var id, pid, children string
+	if c.ID != "" {
 		id = c.ID
 	} else {
 		id = "id"
 	}
 
-	if c.PID != ""{
+	if c.PID != "" {
 		pid = c.PID
 	} else {
 		pid = "pid"
 	}
 
-	if c.Children != ""{
+	if c.Children != "" {
 		children = c.Children
 	} else {
 		children = "children"
 	}
 
-
-
 	for _, node := range nodes {
 		for k, v := range node {
 			if k == id {
-				value,ok := v.(string)
+				value, ok := v.(interface{})
 				if ok {
 					idMap[value] = node
 				}
@@ -47,8 +45,8 @@ func (c *TreeConfig) Construct(nodes []map[string]interface{}) []map[string]inte
 	}
 
 	for _, node := range nodes {
-		pid,_ := node[pid].(string)
-		parent,ok := idMap[pid].(map[string]interface{})
+		pid, _ := node[pid].(interface{})
+		parent, ok := idMap[pid].(map[string]interface{})
 		if ok {
 			p, _ := parent[children].([]map[string]interface{})
 			parent[children] = append(p, node)
