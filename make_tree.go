@@ -1,9 +1,9 @@
 package go_utils
 
 type TreeConfig struct {
-	id string
-	pid string
-	children string
+	ID string
+	PID string
+	Children string
 }
 
 type MakeTree interface {
@@ -15,20 +15,20 @@ func (c *TreeConfig) construct(nodes []map[string]interface{}) []map[string]inte
 	jsonTree := make([]map[string]interface{},0)
 
 	var id,pid,children string
-	if c.id != ""{
-		id = c.id
+	if c.ID != ""{
+		id = c.ID
 	} else {
 		id = "id"
 	}
 
-	if c.pid != ""{
-		pid = c.pid
+	if c.PID != ""{
+		pid = c.PID
 	} else {
 		pid = "pid"
 	}
 
-	if c.children != ""{
-		children = c.children
+	if c.Children != ""{
+		children = c.Children
 	} else {
 		children = "children"
 	}

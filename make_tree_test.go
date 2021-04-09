@@ -20,9 +20,9 @@ func TestMakeTree(t *testing.T) {
 	}
 
 	config := TreeConfig{
-		id:       "cid",
-		pid:      "pid",
-		children: "kids",
+		ID:       "cid",
+		PID:      "pid",
+		Children: "kids",
 	}
 
 	i := config.construct(r)
